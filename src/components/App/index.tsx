@@ -17,9 +17,12 @@ function App() {
   const [results, setResults] = useState<IResult>();
   const [page, setPage] = useState(1);
 
+  // Récupération des données de l'API
   const getRepository = async () => {
     try {
-      const response = await axios.get(`https://api.github.com/search/repositories?q=${search}&sort=stars&order=desc&page=${page}&per_page=9`);
+      const response = await axios.get(
+        `https://api.github.com/search/repositories?q=${search}&sort=stars&order=desc&page=${page}&per_page=9`
+      );
       setResults(response.data);
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -33,29 +36,31 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={(
+          element={
             <>
-              <SearchBar setSearch={setSearch} getRepository={getRepository} setPage={setPage} />
-              {
-                results ? (
-                  <>
-                    <Message nbFound={results.total_count} />
-                    <ReposResults repos={results.items} />
-                    <NavSearch setPage={setPage} getRepository={getRepository} page={page} />
-                  </>
-                ) : ''
-              }
+              <SearchBar
+                setSearch={setSearch}
+                getRepository={getRepository}
+                setPage={setPage}
+              />
+              {results ? (
+                <>
+                  <Message nbFound={results.total_count} />
+                  <ReposResults repos={results.items} />
+                  <NavSearch
+                    setPage={setPage}
+                    getRepository={getRepository}
+                    page={page}
+                  />
+                </>
+              ) : (
+                ''
+              )}
             </>
-          )}
+          }
         />
-        <Route
-          path="/faq"
-          element={<Faq />}
-        />
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

@@ -34,6 +34,19 @@
         "tsx": "never"
       }
     ],
+    // Autoriser le JSX multiligne sans parenthèses
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": false,  // Autoriser les éléments déclaratifs (ex: <div>)
+        "assignment": false,   // Autoriser les éléments assignés (ex: const element = <div>)
+        "return": true,        // Autoriser les éléments dans les retours de fonction
+        "arrow": true,         // Autoriser les éléments dans les fonctions fléchées
+        "condition": true,     // Autoriser les éléments dans les conditions (ex: {condition && <div>})
+        "logical": true,       // Autoriser les éléments dans les opérations logiques (ex: {a || <div>})
+        "prop": true           // Autoriser les éléments dans les props (ex: <Component prop={<div />} />)
+      }
+    ],
     "linebreak-style": 0
   }
 }
