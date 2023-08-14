@@ -1,0 +1,16 @@
+@use './../../styles/vars';
+
+body {
+  background-color: vars.$bg-grey;
+}
+
+.app {
+  background-color: vars.$secondary;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+
+  @media screen and (min-width: 1785px) {
+    width: 70%;
+  }
+}

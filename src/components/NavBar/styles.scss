@@ -1,0 +1,15 @@
+@use './../../styles/vars';
+
+.nav-bar {
+  margin-bottom: 1rem;
+
+  .nav-link {
+    padding: 1rem;
+    border-right: 1px solid rgb(236, 231, 231);
+
+    &.is-active,
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
+}

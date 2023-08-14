@@ -1,0 +1,6 @@
+@use './../../styles/vars';
+
+.ui.card:first-child,
+.ui.card:last-child {
+  margin: 1em 0;
+}
